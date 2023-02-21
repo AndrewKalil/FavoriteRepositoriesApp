@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/FavoriteRepositoriesApp/static/css/main.d4008c4b.css",
+    "main.js": "/FavoriteRepositoriesApp/static/js/main.8fead9f1.js",
+    "static/js/787.c95111a8.chunk.js": "/FavoriteRepositoriesApp/static/js/787.c95111a8.chunk.js",
+    "index.html": "/FavoriteRepositoriesApp/index.html",
+    "main.d4008c4b.css.map": "/FavoriteRepositoriesApp/static/css/main.d4008c4b.css.map",
+    "main.8fead9f1.js.map": "/FavoriteRepositoriesApp/static/js/main.8fead9f1.js.map",
+    "787.c95111a8.chunk.js.map": "/FavoriteRepositoriesApp/static/js/787.c95111a8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d4008c4b.css",
+    "static/js/main.8fead9f1.js"
+  ]
+}
