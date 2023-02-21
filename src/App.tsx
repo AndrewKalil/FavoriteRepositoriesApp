@@ -15,7 +15,7 @@ function App() {
     if (user) {
       dispatch(getUserSuccess({ ...user, password: "####" }));
     }
-  }, []);
+  }, [dispatch]);
 
   return <RoutesComponent />;
 }
