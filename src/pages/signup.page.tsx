@@ -7,7 +7,9 @@ import { registerUser } from "../core/store/user/actions";
 
 const SignupPage = () => {
   const dispatch = useAppDispatch();
+  const [reload, setReload] = useState(false);
   const [credentials, setCredentials] = useState({
+    email: "",
     username: "",
     password: "",
     confirmPassword: "",
@@ -20,8 +22,14 @@ const SignupPage = () => {
 
   const onSubmit = async (event: ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
-    dispatch(registerUser(credentials.username, credentials.password));
-    window.location.reload();
+    dispatch(
+      registerUser(
+        credentials.username,
+        credentials.password,
+        credentials.email
+      )
+    );
+    setReload(!reload);
   };
 
   return (
@@ -30,6 +38,7 @@ const SignupPage = () => {
       className="flex items-center justify-center"
     >
       <form
+        autoComplete="off"
         onSubmit={onSubmit}
         style={{ width: "380px" }}
         className="bg-gray-100 rounded-lg
@@ -38,10 +47,18 @@ const SignupPage = () => {
       >
         <h1 className="text-xl font-semibold text-gray-600">SIGN UP</h1>
         <FormInputComponent
+          name="email"
+          label="Email"
+          value={credentials.email}
+          onChange={onChange}
+          type="text"
+        />
+        <FormInputComponent
           name="username"
           label="Username"
           value={credentials.username}
           onChange={onChange}
+          type="text"
         />
         <FormInputComponent
           name="password"

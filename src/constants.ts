@@ -1,1 +1,1 @@
-export const NAVLINKS = ["repositories", "favorites"];
+export const NAVLINKS = ["repositories", "favorites", "profile"];

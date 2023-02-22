@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export class Api<T> {
+export class Api {
   _endpoint: string;
   _axios;
 
@@ -14,7 +14,7 @@ export class Api<T> {
     });
   }
 
-  get = async () => {
-    return await this._axios.get<T[]>(this._endpoint);
+  get = async <T>(method_endpoint?: string) => {
+    return await this._axios.get<T[]>(this._endpoint + method_endpoint);
   };
 }

@@ -1,6 +1,10 @@
 import { User } from "../../types/user.type";
 
-export const storeUser = async (username: string, password: string) => {
+export const storeUser = async (
+  username: string,
+  password: string,
+  email: string
+) => {
   return generateUsersList
     .then((res) => {
       const findUser = res.find((user) => user.username === username);
@@ -9,9 +13,9 @@ export const storeUser = async (username: string, password: string) => {
       } else {
         localStorage.setItem(
           "users",
-          JSON.stringify([...res, { username, password }])
+          JSON.stringify([...res, { username, password, email }])
         );
-        setUser(username, password);
+        setUser(username, password, email);
       }
     })
     .catch((e) => {
@@ -50,8 +54,8 @@ export const getUserFromList = async (username: string, password: string) => {
     });
 };
 
-const setUser = (username: string, password: string) =>
-  localStorage.setItem("user", JSON.stringify({ username, password }));
+const setUser = (username: string, password: string, email: string) =>
+  localStorage.setItem("user", JSON.stringify({ username, password, email }));
 
 export const getUser = () => {
   try {

@@ -3,6 +3,7 @@ import { Outlet, Route, Routes } from "react-router-dom";
 import FavoritesPage from "../pages/favorites.page";
 import HomePage from "../pages/home.page";
 import LoginPage from "../pages/login.page";
+import ProfilePage from "../pages/profile.page";
 import RepositoriesPage from "../pages/repositories.page";
 import SignupPage from "../pages/signup.page";
 import MainApp from "./main_app.component";
@@ -37,6 +38,14 @@ const RoutesComponent = () => {
             element={
               <ProtectedRouteComponent>
                 <FavoritesPage />
+              </ProtectedRouteComponent>
+            }
+          />
+          <Route
+            path="profile"
+            element={
+              <ProtectedRouteComponent>
+                <ProfilePage />
               </ProtectedRouteComponent>
             }
           />

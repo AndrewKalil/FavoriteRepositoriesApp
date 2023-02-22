@@ -7,6 +7,7 @@ import { loginUser } from "../core/store/user/actions";
 
 const LoginPage = () => {
   const dispatch = useAppDispatch();
+  const [reload, setReload] = useState(false);
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
@@ -20,7 +21,7 @@ const LoginPage = () => {
   const onSubmit = async (event: ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     dispatch(loginUser(credentials.username, credentials.password));
-    window.location.reload();
+    setReload(!reload);
   };
 
   return (
@@ -29,6 +30,7 @@ const LoginPage = () => {
       className="flex items-center justify-center"
     >
       <form
+        autoComplete="off"
         onSubmit={onSubmit}
         style={{ width: "380px" }}
         className="bg-gray-100 rounded-lg
@@ -41,6 +43,7 @@ const LoginPage = () => {
           label="Username"
           value={credentials.username}
           onChange={onChange}
+          type="text"
         />
         <FormInputComponent
           name="password"
